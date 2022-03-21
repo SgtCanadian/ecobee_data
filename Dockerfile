@@ -13,7 +13,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 COPY main.py .
-COPY homethermostatetl ./homethemostatetl
+COPY homethermostatetl ./homethermostatetl
 COPY default.ini .
 
 EXPOSE 4567/tcp
