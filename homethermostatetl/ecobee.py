@@ -41,7 +41,7 @@ class EcobeeParser:
     def _process_sensors(data: dict):
         d_fmt = "%Y-%m-%d %H:%M:%S"
         entries = []
-        data = data.get("sensorList")
+        data = data.get("sensorList", [])
         for thermostat in data:
             thermostat_id = thermostat.get("thermostatIdentifier")
             columns = thermostat.get("columns")
