@@ -17,11 +17,11 @@ else:
 
 webapp = Flask(__name__)
 webapp.config.update({
-    "app_key": config.get("ecobee", "app_key", fallback=os.getenv("ECOBEE_APP_KEY")),
-    "app_url": config.get("ecobee", "app_url", fallback=os.getenv("ECOBEE_APP_URL")),
-    "app_cutoff": config.get("ecobee", "app_cutoff", fallback=os.getenv("ECOBEE_APPCUTOFF")),
+    "app_key": os.getenv("ECOBEE_APP_KEY", default=config.get("ecobee", "app_key" )),
+    "app_url": os.getenv("ECOBEE_APP_URL", default=config.get("ecobee", "app_url")),
+    "app_cutoff": os.getenv("ECOBEE_APPCUTOFF", default=config.get("ecobee", "app_cutoff")),
     "SQLALCHEMY_TRACK_MODIFICATIONS": False,
-    "SQLALCHEMY_DATABASE_URI": config.get("ecobee", "db_uri", fallback=os.getenv("ECOBEE_DB_URI"))
+    "SQLALCHEMY_DATABASE_URI": os.getenv("ECOBEE_DB_URI", default=config.get("ecobee", "db_uri"))
 })
 
 sqla = SQLAlchemy(webapp)
