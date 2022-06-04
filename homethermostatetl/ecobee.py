@@ -18,7 +18,7 @@ class EcobeeParser:
         d_fmt = "%Y-%m-%d %H:%M:%S"
         entries = []
         columns = ['date', 'time']
-        columns.extend(data.get("columns").split(","))
+        columns.extend(data.get("columns", "").split(","))
         for thermostat in data.get("reportList"):
             rows = thermostat.get("rowList")
             thermostat_id = thermostat.get("thermostatIdentifier")
