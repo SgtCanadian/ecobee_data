@@ -10,8 +10,8 @@ class EcobeeParser:
             self.process(data, process_events, process_sensors)
 
     def process(self, data: dict, process_events: bool = True, process_sensors: bool = True):
-        self.events = self._process_events(data) if process_events else None
-        self.sensors = self._process_sensors(data) if process_sensors else None
+        self.events = self._process_events(data) if process_events else self.events
+        self.sensors = self._process_sensors(data) if process_sensors else self.sensors
 
     @staticmethod
     def _process_events(data: dict):
